@@ -39,10 +39,11 @@ def decrypt(cipher,key):
 
     for i in range (len(cipher)):
         x = apb.index(cipher[i].lower()) - apb.index(realkey[i].lower()) #Tìm vị trí của kí tự mới với index = index của kí tự trong code - index của kí tự trong key. Nếu index < 0 thì chạy lại từ cuối danh sách
-        if x >= 0:
-            decrypted += apb[x]
-        else:
-            decrypted += apb[x + 26] #(x+26) vì nếu x + 25 thì -1 + 25 == 24 không phải vị trí cuối danh sách
+        #if x >= 0:
+            #decrypted += apb[x]
+        #else:
+            #decrypted += apb[x + 26]
+        decrypted += apb[x] #If x < 0, it will go back from the bottom of the alphabet
     print('Decrypted text:' , decrypted)
 
 while True:
